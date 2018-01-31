@@ -296,6 +296,15 @@
 
 
       function fecthUserImpact() {
+        $(".fa-meh-o").css({
+          display: "none"
+        });
+        $(".fa-frown-o").css({
+          display: "none"
+        });
+        $(".fa-smile-o").css({
+          display: "none"
+        });
         snapshot();
         var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/,
           "");
