@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <style>
+    .fa-5 {
+      font-size: 12em;
+      color: green;
+    }
+
+    .fa-frown-o,
+    .fa-meh-o,
+    .fa-smile-o {
+      display: none;
+    }
+  </style>
+</head>
+
+<body onload="init();">
+  <i class="fa fa-frown-o fa-5" aria-hidden="true"></i>
+  <i class="fa fa-meh-o fa-5" aria-hidden="true"></i>
+  <i class="fa fa-smile-o fa-5" aria-hidden="true"></i>
+
+  <h1 style="color:teal;">Take a snapshot of the current video stream</h1>
+  Click on the Start WebCam button.
+  <p>
+    <button style="border-radius:4px;padding:6px 12px;" onclick="startWebcam();">Start WebCam</button>
+    <button style="color:red;border-radius:4px;padding:6px 12px;" onclick="stopWebcam();">Stop WebCam</button>
+    <button style="color:#fff;background-color:#337ab7; border-color:#2e6da4;border-radius:4px;padding:6px 12px;" onclick="snapshot();">Take Snapshot</button>
+    <button style="border-color:#2e6da4;border-radius:4px;padding:6px 12px;" onclick="toggleDisplay();">Toggle WebCam Display</button>
+    <button style="padding-left:10px;color:#fff;background-color:#337ab7; border-color:#2e6da4;border-radius:4px;padding:6px 12px;"
+      onclick="javascript:fetchVideo();return false;">Play Video</button>
+    <button style="padding-left:10px;color:#fff;background-color:#337ab7; border-color:#2e6da4;border-radius:4px;padding:6px 12px;"
+      onclick="javascript:fecthUserImpact();return false;">Check Impact</button>
+  </p>
+  <div id="wrapper" style="width:1020px; display:table;">
+    <div id="videoDisplay" style="width:600px; display:table-cell;border:1px solid black;">
+      Live video:
+      <br>
+      <br>
+      <video onclick="snapshot(this);" width=500 height=400 id="video" controls autoplay></video>
+    </div>
+    <div style="width:200px; display:table-cell">
+      <br>
+      <br>
+      <canvas width="100" height="400"></canvas>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;border:1px solid black;">
+      Captured Image:
+      <br>
+      <br>
+      <canvas id="myCanvas" width="500" height="400"></canvas>
+    </div>
+    <div style="width:200px; display:table-cell">
+      <br>
+      <br>
+      <canvas width="100" height="400"></canvas>
+    </div>
+    <div class="youtube" style="width:420px; display:table-cell;border:1px solid black;">
+      Videos Based on your mood
+      <br>
+      <br>
+      <div id="player"></div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+</body>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: 'M7lc1UVf-VE',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+
+      done = true;
+    } else if (event.data == YT.PlayerState.ENDED) {
+      console.log("Finished Playing");
+      fecthUserImpact();
+    }
+  }
+
+  function stopVideo() {
+    player.stopVideo();
+  }
+
+  //--------------------
+  // GET USER MEDIA CODE
+  //--------------------
+  navigator.getUserMedia = (navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
+
+  var video;
+  var webcamStream;
+  var correlationid;
+
+  function startWebcam() {
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia(
+
+        // constraints
+        {
+          video: true,
+          audio: false
+        },
+
+        // successCallback
+        function (localMediaStream) {
+          video = document.querySelector('video');
+          video.src = window.URL.createObjectURL(localMediaStream);
+          webcamStream = localMediaStream;
+        },
+
+        // errorCallback
+        function (err) {
+          console.log("The following error occured: " + err);
+        }
+      );
+    } else {
+      console.log("getUserMedia not supported");
+    }
+  }
+
+  function stopWebcam() {
+    webcamStream.stop();
+  }
+  //---------------------
+  // TAKE A SNAPSHOT CODE
+  //---------------------
+  var canvas, ctx;
+
+  function init() {
+    // Get the canvas and obtain a context for
+    // drawing in it
+    canvas = document.getElementById("myCanvas");
+    ctx = canvas.getContext('2d');
+  }
+
+  function snapshot() {
+    // Draws current image from the video element into the canvas
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    var params = {
+      // Request parameters
+    };
+  }
+
+  function fetchVideo() {
+    var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/, "");
+
+
+    $.ajax({
+        // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+        //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+        //   URL below with "westcentralus".
+        url: "http://localhost:7777/v1/apis/advertisements",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        type: "POST",
+        // Request body
+        data: '{ "image" : "' + Pic + '" }',
+      })
+      .done(function (data) {
+        console.log(data.adurl.split('?v=')[1]);
+        player.loadVideoById(data.adurl.split('?v=')[1]);
+        correlationid = data.correlationid;
+
+      })
+      .fail(function () {
+        alert("error");
+      });
+  }
+
+
+  function fecthUserImpact() {
+    snapshot();
+    var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/, "");
+
+
+    $.ajax({
+        // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+        //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+        //   URL below with "westcentralus".
+        url: "http://localhost:7777/v1/apis/emotions",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        type: "POST",
+        // Request body
+        data: '{ "correlationid": ' + correlationid + ', "image" : "' + Pic + '" }',
+      })
+      .done(function (data) {
+        if (data.status == "success") {
+          $(".fa-meh-o").css({
+            display: "none"
+          });
+          $(".fa-frown-o").css({
+            display: "none"
+          });
+          $(".fa-smile-o").css({
+            display: "block"
+          });
+
+        } else if (data.status == "neutral") {
+          $(".fa-frown-o").css({
+            display: "none"
+          });
+          $(".fa-smile-o").css({
+            display: "none"
+          });
+          $(".fa-meh-o").css({
+            display: "block"
+          });
+
+        } else {
+          console.log(data);
+          $(".fa-meh-o").css({
+            display: "none"
+          });
+          $(".fa-smile-o").css({
+            display: "none"
+          });
+          $(".fa-frown-o").css({
+            display: "block"
+          });
+          player.loadVideoById(data.adurl.split('?v=')[1]);
+          correlationid = data.correlationid;
+        }
+
+      })
+      .fail(function () {
+        alert("error");
+      });
+  }
+
+  function toggleDisplay() {
+    var x = document.getElementById("videoDisplay");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
+</html>

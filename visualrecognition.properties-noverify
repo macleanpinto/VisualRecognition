@@ -1,0 +1,33 @@
+server.port=7777
+spring.application.name=visualrecognition
+
+# Discovery Server Access
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+db.driver=com.mysql.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/visualrecognition
+db.username=root
+db.password=root
+# Hibernate
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+hibernate.show_sql=true
+hibernate.hbm2ddl.auto=false
+entitymanager.packagesToScan=com.tmt.cognitive.challenge.visualrecognition.vo
+
+#ERRORS
+
+API_SYS_ERR_001_ID=API_SYS_001
+API_SYS_ERR_001_MSG=There was an error processing this request. Please retry after some time
+
+
+#EmotionChecks
+visualrecognition.positive=happiness,surprise
+visualrecognition.negative=anger,contempt,disgust,fear,sadness
+visualrecognition.neutral=neutral
+
+#API Details
+emotionapi.subscriptionkey=dad0592b189b456491c82e054546845b
+emotionapi.baseuri=https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize
+
+faceapi.subscriptionkey=3cd2dc904a9d4742a5b060d30a42c483
+faceapi.baseuri=https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect

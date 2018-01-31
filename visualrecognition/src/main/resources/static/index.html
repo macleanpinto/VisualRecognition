@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="index.scss" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <style>
+    .fa-5 {
+      font-size: 12em;
+      color: green;
+    }
+
+    .fa-frown-o,
+    .fa-meh-o,
+    .fa-smile-o {
+      display: none;
+    }
+  </style>
+  <link rel="shortcut icon" href="/Assets/img/favicon.ico" type="image/x-icon">
+  <title>Congnitive Learning Demo</title>
+</head>
+
+<body onload="init();">
+  <nav class="navbar navbar-expand-md bg-secondary navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Deloitte</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+        </ul>
+        <form class="form-inline m-0">
+          <input class="form-control mr-2" type="text" placeholder="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center opaque-overlay" style="background-image: url(&quot;https://pingendo.github.io/templates/sections/assets/cover_event.jpg&quot;);">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12 text-white">
+          <h1 class="display-3 mb-4">Congnitive Learning</h1>
+          <p class="lead mb-5">Pingendo is a HTML editor for everyone. Easy for newbies, useful for professionals.
+            <br>Code quality is a must. Pingendo generates clean, battle-tested, modular Bootstrap 4 code. </p>
+          <a href="#app" class="btn btn-lg mx-1 btn-secondary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 bg-light">
+    <div class="container py-5" id="app" style="max-width:1500px;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3 k">
+              <div id="videoDisplay">
+                <video onclick="snapshot(this);" id="video" controls="" autoplay="" class="w-100 h-75"></video>
+              </div>
+              <div class="col-md-12 text-center">
+                <a class="btn btn-primary" href="#" onclick="snapshot();">Take SnapShot</a>
+              </div>
+            </div>
+            <div class="col-md-3 k">
+              <div id="imageDiv" class="w-100" style="height:87%;">
+                <canvas id="myCanvas" class="w-100" style="height:99%;"></canvas>
+              </div>
+              <div class="col-md-12 text-center">
+                <a class="btn btn-primary" href="#" onclick="javascript:fetchVideo();return false;">Play Video</a>
+              </div>
+            </div>
+            <div class="col-md-3 k">
+              <canvas style="display: none;"></canvas>
+              <div class="youtube w-100" style="height:87%;">
+                <div id="player" class="w-100" style="height:99%;"></div>
+              </div>
+              <div class="col-md-12 text-center">
+                <a class="btn btn-primary" href="#" onclick="javascript:fecthUserImpact();return false;">Check Impact</a>
+              </div>
+            </div>
+            <div class="col-md-3 k">
+
+              <div class="card" class="w-100">
+                <i class="fa fa-frown-o fa-5 text-center" aria-hidden="true"></i>
+                <i class="fa fa-meh-o fa-5 text-center" aria-hidden="true"></i>
+                <i class="fa fa-smile-o fa-5 text-center" aria-hidden="true"></i>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            </div1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5 text-center bg-warning">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Testimonials columns</h1>
+            <p class="lead">We grow together with the community</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 p-4">
+            <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
+            <p class="my-4">
+              <i>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</i>
+            </p>
+            <p>
+              <b>Meow</b>
+              <br>Senior developer</p>
+          </div>
+          <div class="col-md-4 p-4">
+            <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
+            <p class="my-4">
+              <i>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                nec. </i>
+            </p>
+            <p>
+              <b>J. L. Fish</b>
+              <br>UI designer</p>
+          </div>
+          <div class="col-md-4 p-4">
+            <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
+            <p class="my-4">
+              <i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis
+                dis parturient montes.</i>
+            </p>
+            <p>
+              <b>Carlito</b>
+              <br>Boss</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"></script>
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+
+          done = true;
+        } else if (event.data == YT.PlayerState.ENDED) {
+          console.log("Finished Playing");
+          fecthUserImpact();
+        }
+      }
+
+      function stopVideo() {
+        player.stopVideo();
+      }
+
+      //--------------------
+      // GET USER MEDIA CODE
+      //--------------------
+      navigator.getUserMedia = (navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
+
+      var video;
+      var webcamStream;
+      var correlationid;
+
+      function startWebcam() {
+        if (navigator.getUserMedia) {
+          navigator.getUserMedia(
+
+            // constraints
+            {
+              video: true,
+              audio: false
+            },
+
+            // successCallback
+            function (localMediaStream) {
+              video = document.querySelector('video');
+              video.src = window.URL.createObjectURL(localMediaStream);
+              webcamStream = localMediaStream;
+            },
+
+            // errorCallback
+            function (err) {
+              console.log("The following error occured: " + err);
+            }
+          );
+        } else {
+          console.log("getUserMedia not supported");
+        }
+      }
+
+      function stopWebcam() {
+        webcamStream.stop();
+      }
+      //---------------------
+      // TAKE A SNAPSHOT CODE
+      //---------------------
+      var canvas, ctx;
+
+      function init() {
+        startWebcam();
+        // Get the canvas and obtain a context for
+        // drawing in it
+        canvas = document.getElementById("myCanvas");
+        ctx = canvas.getContext('2d');
+      }
+
+      function snapshot() {
+        // Draws current image from the video element into the canvas
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        var params = {
+          // Request parameters
+        };
+      }
+
+      function fetchVideo() {
+        var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/,
+          "");
+
+
+        $.ajax({
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   URL below with "westcentralus".
+            url: "http://localhost:7777/v1/apis/advertisements",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            },
+            type: "POST",
+            // Request body
+            data: '{ "image" : "' + Pic + '" }',
+          })
+          .done(function (data) {
+            console.log(data.adurl.split('?v=')[1]);
+            player.loadVideoById(data.adurl.split('?v=')[1]);
+            correlationid = data.correlationid;
+
+          })
+          .fail(function () {
+            alert("error");
+          });
+      }
+
+
+      function fecthUserImpact() {
+        snapshot();
+        var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/,
+          "");
+
+
+        $.ajax({
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   URL below with "westcentralus".
+            url: "http://localhost:7777/v1/apis/emotions",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            },
+            type: "POST",
+            // Request body
+            data: '{ "correlationid": ' + correlationid + ', "image" : "' + Pic + '" }',
+          })
+          .done(function (data) {
+            console.log(data);
+            if (data.status == "success") {
+              $(".fa-meh-o").css({
+                display: "none"
+              });
+              $(".fa-frown-o").css({
+                display: "none"
+              });
+              $(".fa-smile-o").css({
+                display: "block"
+              });
+
+            } else if (data.status == "neutral") {
+              $(".fa-frown-o").css({
+                display: "none"
+              });
+              $(".fa-smile-o").css({
+                display: "none"
+              });
+              $(".fa-meh-o").css({
+                display: "block"
+              });
+
+            } else {
+              console.log(data);
+              $(".fa-meh-o").css({
+                display: "none"
+              });
+              $(".fa-smile-o").css({
+                display: "none"
+              });
+              $(".fa-frown-o").css({
+                display: "block"
+              });
+              player.loadVideoById(data.adurl.split('?v=')[1]);
+              correlationid = data.correlationid;
+            }
+
+          })
+          .fail(function () {
+            alert("error");
+          });
+      }
+
+      function toggleDisplay() {
+        var x = document.getElementById("videoDisplay");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:110px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">made with&nbsp;&nbsp;
+      <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
+    </pingendo>
+</body>
+
+</html>
