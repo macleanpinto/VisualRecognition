@@ -24,6 +24,12 @@ public class VisualRecognitionAdFetchResponse extends VisualRecognitionGenericRe
 	@JsonProperty("correlationid")
 	private Long correlationid;
 	
+	@JsonProperty("faceFactors")
+	private Map<String,Object> faceFactors;
+	
+	@JsonProperty("emotionFactors")
+	Map<String,Object> emotionScores;
+	
 	@JsonProperty("adurl")
 	public String getAdUrl() {
 		return adUrl;
@@ -44,7 +50,21 @@ public class VisualRecognitionAdFetchResponse extends VisualRecognitionGenericRe
 		this.correlationid = correlationid;
 	}
 
+	public Map<String, Object> getFaceFactors() {
+		return faceFactors;
+	}
 
+	public void setFaceFactors(Map<String, Object> faceFactors) {
+		this.faceFactors = faceFactors;
+	}
+
+	public Map<String, Object> getEmotionScores() {
+		return emotionScores;
+	}
+
+	public void setEmotionScores(Map<String, Object> emotionScores) {
+		this.emotionScores = emotionScores;
+	}
 
 }
 

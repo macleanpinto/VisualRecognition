@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -90,6 +91,9 @@ public class VisualRecognitionServiceImpl implements VisualRecognitionService {
 		visualrecognitionaudittransaction.getVisualrecognisionuserprofiles().setUserprofileid(Long.parseLong(adsMappingDetails.getUserProfileId().toString()));
 		Long transactionCorrelation = visualRecognitionDaoImpl.insertTransaction(visualrecognitionaudittransaction);
 		visualRecognitionAdFetchResponse.setCorrelationid(transactionCorrelation);
+		visualRecognitionAdFetchResponse.setFaceFactors(new HashMap<String,Object>());
+		visualRecognitionAdFetchResponse.getFaceFactors().put("age", age);
+		visualRecognitionAdFetchResponse.getFaceFactors().put("gender", gender);
 		return visualRecognitionAdFetchResponse;
 	}
 

@@ -48,10 +48,17 @@
   <div class="py-5 text-center opaque-overlay" style="background-image: url(&quot;https://pingendo.github.io/templates/sections/assets/cover_event.jpg&quot;);">
     <div class="container py-5">
       <div class="row">
-        <div class="col-md-12 text-white">
-          <h1 class="display-3 mb-4">Congnitive Learning</h1>
-          <p class="lead mb-5">Pingendo is a HTML editor for everyone. Easy for newbies, useful for professionals.
-            <br>Code quality is a must. Pingendo generates clean, battle-tested, modular Bootstrap 4 code. </p>
+        <div class="col-md-12 text-dark">
+          <h1 class="display-3 mb-4">Future of In Store Advertising</h1>
+          <p class="lead mb-5">
+            <b>Leveragng Cognitive tech to augment digital signage.</b>
+            <br>
+            <br>Camera mounted smart displays enable real time segmentation and targeting for effective trade promotions. Cognitive
+            computing is another subfield under the A.I. umbrella, but it's not as easily defined. In fact, it's a bit controversial.
+            Essentially, cognitive computing "refers to computing that is focused on reasoning and understanding at a higher
+            level, often in a manner that is analogous to human cognition -- or at least inspired by human cognition". Typically,
+            it deals with symbolic and conceptual information rather than just pure data or sensor streams, with the aim
+            of making high-level decisions in complex situations.</p>
           <a href="#app" class="btn btn-lg mx-1 btn-secondary">Get Started</a>
         </div>
       </div>
@@ -64,15 +71,12 @@
           <div class="row">
             <div class="col-md-3 k">
               <div id="videoDisplay">
-                <video onclick="snapshot(this);" id="video" controls="" autoplay="" class="w-100 h-75"></video>
-              </div>
-              <div class="col-md-12 text-center">
-                <a class="btn btn-primary" href="#" onclick="snapshot();">Take SnapShot</a>
+                <video onclick="snapshot(this);" id="video" controls="" autoplay="" style="width:345px; height:260px;"></video>
               </div>
             </div>
             <div class="col-md-3 k">
-              <div id="imageDiv" class="w-100" style="height:87%;">
-                <canvas id="myCanvas" class="w-100" style="height:99%;"></canvas>
+              <div id="imageDiv">
+                <canvas id="myCanvas" style="width:345px; height:260px;"></canvas>
               </div>
               <div class="col-md-12 text-center">
                 <a class="btn btn-primary" href="#" onclick="javascript:fetchVideo();return false;">Play Video</a>
@@ -80,32 +84,56 @@
             </div>
             <div class="col-md-3 k">
               <canvas style="display: none;"></canvas>
-              <div class="youtube w-100" style="height:87%;">
-                <div id="player" class="w-100" style="height:99%;"></div>
+              <div class="youtube">
+                <div id="player" style="width:345px; height:260px;"></div>
               </div>
               <div class="col-md-12 text-center">
                 <a class="btn btn-primary" href="#" onclick="javascript:fecthUserImpact();return false;">Check Impact</a>
               </div>
             </div>
             <div class="col-md-3 k">
-
-              <div class="card" class="w-100">
+              <div class="card">
                 <i class="fa fa-frown-o fa-5 text-center" aria-hidden="true"></i>
                 <i class="fa fa-meh-o fa-5 text-center" aria-hidden="true"></i>
                 <i class="fa fa-smile-o fa-5 text-center" aria-hidden="true"></i>
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">Face API Factors</h5>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Age</th>
+                        <th>Gender</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td id="age">Age</td>
+                        <td id="gender">Gender</td>
+                      </tr>
+                      <tr></tr>
+                      <tr></tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
+              <h5 class="card-title">
+                <br>Emotions API Factors</h5>
+              <table class="table" id="emotion">
+                <thead>
+                  <tr>
+                    <th>Emotion</th>
+                    <th>Factor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
             </div>
-            </div1>
           </div>
         </div>
       </div>
     </div>
-      <div class="py-5 text-center bg-warning">
+    <div class="py-5 text-center bg-warning">
       <div class="container py-5">
         <div class="row">
           <div class="col-md-12">
@@ -118,265 +146,301 @@
             <img class="img-fluid d-block rounded-circle mx-auto" src="Assets/img/cognitive.png">
             <p class="my-4">
               <br>
-              <br>Infuse your apps, websites and bots with intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication. Transform your business with AI today</p>
+              <br>Infuse your apps, websites and bots with intelligent algorithms to see, hear, speak, understand and interpret
+              your user needs through natural methods of communication. Transform your business with AI today</p>
             <p>
               <br>
               <br>
               <br>
               <br>
-              <br><b>Microsoft Azure Cognitive Services</b></p>
+              <br>
+              <b>Microsoft Azure Cognitive Services</b>
+            </p>
           </div>
           <div class="col-md-4 p-4">
             <img class="img-fluid d-block rounded-circle mx-auto" src="Assets/img/face.detection.png" height="10">
             <p class="my-4">
               <br>
               <br>
-              <br>Face API detects up to 64 human faces with high precision face location in an image. And the image can be specified by file in bytes or valid URL. Face rectangle (left, top, width and height) indicating the face location in the image is
-              returned along with each detected face. Optionally, face detection extracts a series of face related attributes such as pose, gender, age, head pose, facial hair and glasses. </p>
+              <br>Face API detects up to 64 human faces with high precision face location in an image. And the image can be specified
+              by file in bytes or valid URL. Face rectangle (left, top, width and height) indicating the face location in
+              the image is returned along with each detected face. Optionally, face detection extracts a series of face related
+              attributes such as pose, gender, age, head pose, facial hair and glasses. </p>
             <p>
-              <br><b>Face API</b> </p>
+              <br>
+              <b>Face API</b>
+            </p>
           </div>
           <div class="col-md-4 p-4">
             <img class="img-fluid d-block rounded-circle mx-auto" src="Assets/img/emotions.png">
-            <p class="my-4">The Emotion API beta takes an image as an input, and returns the confidence across a set of emotions for each face in the image, as well as bounding box for the face, from the Face API. The emotions detected are happiness, sadness, surprise,
-              anger, fear, contempt, disgust or neutral. These emotions are communicated cross-culturally and universally via the same basic facial expressions, where are identified by Emotion API.</p>
-            <p> <b>Emotions API</b> </p>
+            <p class="my-4">The Emotion API beta takes an image as an input, and returns the confidence across a set of emotions for each
+              face in the image, as well as bounding box for the face, from the Face API. The emotions detected are happiness,
+              sadness, surprise, anger, fear, contempt, disgust or neutral. These emotions are communicated cross-culturally
+              and universally via the same basic facial expressions, where are identified by Emotion API.</p>
+            <p>
+              <b>Emotions API</b>
+            </p>
           </div>
         </div>
       </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-      crossorigin="anonymous"></script>
-    <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+      <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
 
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
 
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'M7lc1UVf-VE',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-
-          done = true;
-        } else if (event.data == YT.PlayerState.ENDED) {
-          console.log("Finished Playing");
-          fecthUserImpact();
-        }
-      }
-
-      function stopVideo() {
-        player.stopVideo();
-      }
-
-      //--------------------
-      // GET USER MEDIA CODE
-      //--------------------
-      navigator.getUserMedia = (navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia);
-
-      var video;
-      var webcamStream;
-      var correlationid;
-
-      function startWebcam() {
-        if (navigator.getUserMedia) {
-          navigator.getUserMedia(
-
-            // constraints
-            {
-              video: true,
-              audio: false
-            },
-
-            // successCallback
-            function (localMediaStream) {
-              video = document.querySelector('video');
-              video.src = window.URL.createObjectURL(localMediaStream);
-              webcamStream = localMediaStream;
-            },
-
-            // errorCallback
-            function (err) {
-              console.log("The following error occured: " + err);
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: 'M7lc1UVf-VE',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
             }
-          );
-        } else {
-          console.log("getUserMedia not supported");
-        }
-      }
-
-      function stopWebcam() {
-        webcamStream.stop();
-      }
-      //---------------------
-      // TAKE A SNAPSHOT CODE
-      //---------------------
-      var canvas, ctx;
-
-      function init() {
-        startWebcam();
-        // Get the canvas and obtain a context for
-        // drawing in it
-        canvas = document.getElementById("myCanvas");
-        ctx = canvas.getContext('2d');
-      }
-
-      function snapshot() {
-        // Draws current image from the video element into the canvas
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        var params = {
-          // Request parameters
-        };
-      }
-
-      function fetchVideo() {
-        var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/,
-          "");
-
-
-        $.ajax({
-            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            url: "http://localhost:7777/v1/apis/advertisements",
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-            },
-            type: "POST",
-            // Request body
-            data: '{ "image" : "' + Pic + '" }',
-          })
-          .done(function (data) {
-            console.log(data.adurl.split('?v=')[1]);
-            player.loadVideoById(data.adurl.split('?v=')[1]);
-            correlationid = data.correlationid;
-
-          })
-          .fail(function () {
-            alert("error");
           });
-      }
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+          event.target.playVideo();
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
+
+        function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+
+            done = true;
+          } else if (event.data == YT.PlayerState.ENDED) {
+            console.log("Finished Playing");
+            fecthUserImpact();
+          }
+        }
+
+        function stopVideo() {
+          player.stopVideo();
+        }
+
+        //--------------------
+        // GET USER MEDIA CODE
+        //--------------------
+        navigator.getUserMedia = (navigator.getUserMedia ||
+          navigator.webkitGetUserMedia ||
+          navigator.mozGetUserMedia ||
+          navigator.msGetUserMedia);
+
+        var video;
+        var webcamStream;
+        var correlationid;
+
+        function startWebcam() {
+          if (navigator.getUserMedia) {
+            navigator.getUserMedia(
+
+              // constraints
+              {
+                video: true,
+                audio: false
+              },
+
+              // successCallback
+              function (localMediaStream) {
+                video = document.querySelector('video');
+                video.src = window.URL.createObjectURL(localMediaStream);
+                webcamStream = localMediaStream;
+              },
+
+              // errorCallback
+              function (err) {
+                console.log("The following error occured: " + err);
+              }
+            );
+          } else {
+            console.log("getUserMedia not supported");
+          }
+        }
+
+        function stopWebcam() {
+          webcamStream.stop();
+        }
+        //---------------------
+        // TAKE A SNAPSHOT CODE
+        //---------------------
+        var canvas, ctx;
+
+        function init() {
+          startWebcam();
+          // Get the canvas and obtain a context for
+          // drawing in it
+          canvas = document.getElementById("myCanvas");
+          ctx = canvas.getContext('2d');
+        }
+
+        function snapshot() {
+          // Draws current image from the video element into the canvas
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          var params = {
+            // Request parameters
+          };
+        }
+
+        function fetchVideo() {
+          $("#face").find("tr:gt(0)").remove();
+          $("#emotion").find("tr:gt(0)").remove();
+          $(".fa-meh-o").css({
+            display: "none"
+          });
+          $(".fa-frown-o").css({
+            display: "none"
+          });
+          $(".fa-smile-o").css({
+            display: "none"
+          });
+          var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(
+            /^data:image\/(jpeg|jpg);base64,/,
+            "");
 
 
-      function fecthUserImpact() {
-        $(".fa-meh-o").css({
-          display: "none"
-        });
-        $(".fa-frown-o").css({
-          display: "none"
-        });
-        $(".fa-smile-o").css({
-          display: "none"
-        });
-        snapshot();
-        var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(/^data:image\/(jpeg|jpg);base64,/,
-          "");
-
-
-        $.ajax({
-            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            url: "http://localhost:7777/v1/apis/emotions",
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-            },
-            type: "POST",
-            // Request body
-            data: '{ "correlationid": ' + correlationid + ', "image" : "' + Pic + '" }',
-          })
-          .done(function (data) {
-            console.log(data);
-            if (data.status == "success") {
-              $(".fa-meh-o").css({
-                display: "none"
-              });
-              $(".fa-frown-o").css({
-                display: "none"
-              });
-              $(".fa-smile-o").css({
-                display: "block"
-              });
-
-            } else if (data.status == "neutral") {
-              $(".fa-frown-o").css({
-                display: "none"
-              });
-              $(".fa-smile-o").css({
-                display: "none"
-              });
-              $(".fa-meh-o").css({
-                display: "block"
-              });
-
-            } else {
-              console.log(data);
-              $(".fa-meh-o").css({
-                display: "none"
-              });
-              $(".fa-smile-o").css({
-                display: "none"
-              });
-              $(".fa-frown-o").css({
-                display: "block"
-              });
+          $.ajax({
+              // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+              //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+              //   URL below with "westcentralus".
+              url: "http://localhost:7777/v1/apis/advertisements",
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
+              type: "POST",
+              // Request body
+              data: '{ "image" : "' + Pic + '" }',
+            })
+            .done(function (data) {
+              console.log(data.adurl.split('?v=')[1]);
               player.loadVideoById(data.adurl.split('?v=')[1]);
               correlationid = data.correlationid;
-            }
+              $("#age").html(data.faceFactors.age);
+              $("#gender").html(data.faceFactors.gender);
 
-          })
-          .fail(function () {
-            alert("error");
-          });
-      }
-
-      function toggleDisplay() {
-        var x = document.getElementById("videoDisplay");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
+            })
+            .fail(function () {
+              alert("error");
+            });
         }
-      }
-    </script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+
+        function fecthUserImpact() {
+          $("#emotion").find("tr:gt(0)").remove();
+          $(".fa-meh-o").css({
+            display: "none"
+          });
+          $(".fa-frown-o").css({
+            display: "none"
+          });
+          $(".fa-smile-o").css({
+            display: "none"
+          });
+          snapshot();
+          var Pic = document.getElementById("myCanvas").toDataURL("image/jpeg").replace(
+            /^data:image\/(jpeg|jpg);base64,/,
+            "");
+
+
+          $.ajax({
+              // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+              //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+              //   URL below with "westcentralus".
+              url: "http://localhost:7777/v1/apis/emotions",
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
+              type: "POST",
+              // Request body
+              data: '{ "correlationid": ' + correlationid + ', "image" : "' + Pic + '" }',
+            })
+            .done(function (data) {
+              if (data.status == "success") {
+                $(".fa-meh-o").css({
+                  display: "none"
+                });
+                $(".fa-frown-o").css({
+                  display: "none"
+                });
+                $(".fa-smile-o").css({
+                  display: "block"
+                });
+
+              } else if (data.status == "neutral") {
+                $(".fa-frown-o").css({
+                  display: "none"
+                });
+                $(".fa-smile-o").css({
+                  display: "none"
+                });
+                $(".fa-meh-o").css({
+                  display: "block"
+                });
+
+              } else {
+                $(".fa-meh-o").css({
+                  display: "none"
+                });
+                $(".fa-smile-o").css({
+                  display: "none"
+                });
+                $(".fa-frown-o").css({
+                  display: "block"
+                });
+                player.loadVideoById(data.adurl.split('?v=')[1]);
+                correlationid = data.correlationid;
+              }
+              for (var property in data.emotionFactors) {
+                if (property != undefined) {
+                  $('#emotion tr:last')
+                    .after(`<tr>
+                    <td>` + property + `</td>
+                    <td>` + data.emotionFactors[
+                      property] + `</td>
+                  </tr>`);
+                }
+              }
+            })
+            .fail(function () {
+              alert("error");
+            });
+        }
+
+        function toggleDisplay() {
+          var x = document.getElementById("videoDisplay");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+      </script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    </div>
+  </div>
 </body>
 
 </html>

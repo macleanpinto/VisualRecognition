@@ -107,15 +107,18 @@ public class VisualRecognitionEmotionServiceImpl implements VisualRecognitionEmo
 				visualRecognitionDaoImpl.updateTransaction(emotionResult, correlationid);
 				adResponse = new VisualRecognitionAdFetchResponse();
 				adResponse.setStatus("neutral");
+				adResponse.setEmotionScores(emotionScores);
 			}else if("positive".equalsIgnoreCase(emotionResult)){
 				System.out.println("Emotion Factor - " + emotionResult);
 				visualRecognitionDaoImpl.updateTransaction(emotionResult, correlationid);
 				adResponse = this.updateScoreMapping(emotionResult, correlationid);
+				adResponse.setEmotionScores(emotionScores);
 				return adResponse;
 			}else if("negative".equalsIgnoreCase(emotionResult)){
 				visualRecognitionDaoImpl.updateTransaction(emotionResult, correlationid);
 				System.out.println("Emotion Factor - " + emotionResult);
 				adResponse = this.updateScoreMapping(emotionResult, correlationid);
+				adResponse.setEmotionScores(emotionScores);
 				return adResponse;
 			}
 		}
